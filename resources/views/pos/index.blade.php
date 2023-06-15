@@ -22,7 +22,7 @@
                                     class="form-control form-control-sm col-sm-12 float-right"
                                     placeholder="Search Product..." onblur="this.form.submit()"></div>
                             <div class="col-sm-3"><button type="submit"
-                                    class="btn btn-primary btn-sm float-right btn-block">Cari Product</button></div>
+                                    class="btn btn-primary btn-sm float-right btn-block">Find</button></div>
                         </div>
                     </form>
                 </div>
@@ -52,7 +52,7 @@
                                     <label class="card-text text-center font-weight-bold"
                                         style="text-transform: capitalize;">
                                         {{ Str::words($product->name,4) }} ({{$product->qty}}) </label>
-                                    <p class="card-text text-center">Rp. {{ number_format($product->price,2,',','.') }}
+                                    <p class="card-text text-center">Bath. {{ number_format($product->price,2,',','.') }}
                                     </p>
                                 </div>
                             </div>
@@ -104,7 +104,7 @@
                                                     class="fas fa-trash" style="color: rgb(134, 134, 134)"></i></a>
                                         </form>
                                     </td>
-                                    <td>{{Str::words($item['name'],3)}} <br>Rp.
+                                    <td>{{Str::words($item['name'],3)}} <br>
                                         {{ number_format($item['pricesingle'],2,',','.') }}
                                     </td>
                                     <td class="font-weight-bold">
@@ -124,7 +124,7 @@
                                                     class="fas fa-plus"></i></button>
                                         </form>
                                     </td>
-                                    <td class="text-right">Rp. {{ number_format($item['price'],2,',','.') }}</td>
+                                    <td class="text-right">{{ number_format($item['price'],2,',','.') }}</td>
                                 </tr>
                                 @empty
                                 <tr>
@@ -137,10 +137,10 @@
                     <table class="table table-sm table-borderless">
                         <tr>
                             <th width="60%">Sub Total</th>
-                            <th width="40%" class="text-right">Rp.
+                            <th width="40%" class="text-right">
                                 {{ number_format($data_total['sub_total'],2,',','.') }} </th>
                         </tr>
-                        <tr>
+                        {{-- <tr>
                             <th>
                                 <form action="{{ url('/transcation') }}" method="get">
                                     PPN 10%
@@ -150,10 +150,10 @@
                             </th>
                             <th class="text-right">Rp.
                                 {{ number_format($data_total['tax'],2,',','.') }}</th>
-                        </tr>
+                        </tr> --}}
                         <tr>
                             <th>Total</th>
-                            <th class="text-right font-weight-bold">Rp.
+                            <th class="text-right font-weight-bold">
                                 {{ number_format($data_total['total'],2,',','.') }}</th>
                         </tr>
                     </table>
@@ -199,15 +199,15 @@
                     <table class="table table-sm table-borderless">
                         <tr>
                             <th width="60%">Sub Total</th>
-                            <th width="40%" class="text-right">Rp.
+                            <th width="40%" class="text-right">
                                 {{ number_format($data_total['sub_total'],2,',','.') }} </th>
                         </tr>
                         @if($data_total['tax'] > 0)
-                        <tr>
-                            <th>PPN 10%</th>
-                            <th class="text-right">Rp.
+                        {{-- <tr>
+                            <th></th>
+                            <th class="text-right">
                                 {{ number_format($data_total['tax'],2,',','.') }}</th>
-                        </tr>
+                        </tr> --}}
                         @endif
                     </table>
                     <form action="{{ url('/transcation/bayar') }}" method="POST">
@@ -226,7 +226,7 @@
                     <h3 class="font-weight-bold text-primary">Kembalian:</h3>
                     <h1 class="font-weight-bold text-primary" id="kembalian"></h1>
                 </div>
-                
+
                 <div class="modal-footer justify-content-center">
                     <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-primary" id="saveButton" disabled onClick="openWindowReload(this)">Save transcation</button>
@@ -284,7 +284,7 @@
                 ',00';
 
             cek(bayar, jumlah);
-            const saveButton = document.getElementById("saveButton");   
+            const saveButton = document.getElementById("saveButton");
 
             if(jumlah === 0){
                 saveButton.disabled = true;
@@ -293,7 +293,7 @@
         };
 
         function cek(bayar, jumlah) {
-            const saveButton = document.getElementById("saveButton");   
+            const saveButton = document.getElementById("saveButton");
 
             if (bayar < jumlah) {
                 saveButton.disabled = true;

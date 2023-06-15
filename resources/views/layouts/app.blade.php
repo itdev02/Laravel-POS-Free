@@ -33,7 +33,7 @@
 
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                    <a class="nav-link font-weight-bolder" href="{{url('transcation')}}">Point Of Sales Laravel                          
+                    <a class="nav-link font-weight-bolder" href="{{url('transcation')}}">Point Of Sales Laravel
                         </a>
                     </li>
                     <li class="nav-item dropdown">
@@ -41,15 +41,15 @@
                             aria-haspopup="true" aria-expanded="false">Product</a>
                         <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item" href="{{route('products.index')}}">List Product</a>
-                            <a class="dropdown-item" href="#">History Stock (WIP)</a>
+                            <a class="dropdown-item" href="{{url('/transcation/history')}}">History Stock Transcation</a>
                         </div>
                     </li>
 
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                       <a class="nav-link" href="{{url('/transcation/history')}}">History Transcation</a>
-                    </li>
+                    </li> --}}
                     <li class="nav-item">
-                        <a class="nav-link" href="#">User (WIP)</a>
+                        <a class="nav-link" href="#">Report</a>
                     </li>
                 </ul>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -105,10 +105,10 @@
             @yield('content')
         </main>
 
-        
+
     </div>
 
-    
+
 </body>
     <!-- Footer -->
         <footer class="page-footer font-small blue pt-4">
@@ -153,7 +153,7 @@
           <script type="text/javascript">
             document.write(unescape('%3c%64%69%76%20%63%6c%61%73%73%3d%22%66%6f%6f%74%65%72%2d%63%6f%70%79%72%69%67%68%74%20%74%65%78%74%2d%63%65%6e%74%65%72%20%70%79%2d%33%22%3e%a9%20%32%30%32%30%20%43%6f%70%79%72%69%67%68%74%3a%20%0d%0a%20%20%20%20%20%20%20%20%20%20%20%20%3c%61%20%68%72%65%66%3d%22%68%74%74%70%73%3a%2f%2f%77%77%77%2e%79%6f%75%74%75%62%65%2e%63%6f%6d%2f%63%68%61%6e%6e%65%6c%2f%55%43%58%46%64%63%36%38%73%72%5a%51%2d%6f%6b%34%49%31%2d%70%48%73%32%67%22%20%74%61%72%67%65%74%3d%22%5f%62%6c%61%6e%6b%22%3e%20%54%61%68%75%20%43%6f%64%69%6e%67%3c%2f%61%3e%0d%0a%20%20%20%20%20%20%20%20%20%20%3c%2f%64%69%76%3e'));
           </script>
-      
+
         </footer>
         <!-- Footer -->
 <!-- JQuery -->
